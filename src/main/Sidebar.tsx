@@ -41,7 +41,7 @@ const Sidebar = () => {
       icon: "icons/link-icons/analytics.svg",
     },
     {
-      href: "/ai-configuration",
+      href: "/modelConfig",
       name: "AI Configuration",
       icon: "icons/link-icons/ai-config.svg",
     },

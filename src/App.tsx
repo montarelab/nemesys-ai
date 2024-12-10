@@ -49,7 +49,7 @@ const styles = {
   },
   content: {
     flex: 1,
-    padding: "20px 50px",
+    padding: "20px 200px",
     overflow: "auto",
     backgroundColor: theme.colors.backgroundPrimary,
     border: "2px solid var(--background-primary)",

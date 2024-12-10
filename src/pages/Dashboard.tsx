@@ -3,6 +3,7 @@ import PageHeader from "../content/PageHeader";
 import Button from "../control/Button";
 import PinCard from "../content/PinCard";
 import { ReactSVG } from "react-svg";
+import GenericTable from "../content/GenericTable";
 
 const Dashboard = () => {
   return (
@@ -62,8 +63,8 @@ const Dashboard = () => {
           <div className="d-flex justify-content-center" style={styles.chart}>
             <ReactSVG
               src="icons/charts/main_chart.svg"
-              width={300}
-              height={300}
+              width={200}
+              height={200}
             />
           </div>
         </div>
@@ -104,20 +105,22 @@ const Dashboard = () => {
         <div className="col-sm-6">
           <div className="d-flex justify-content-center" style={styles.chart}>
             <ReactSVG
-              src="icons/charts/main_chart.svg"
+              src="icons/charts/availability_bar.svg"
               width={300}
               height={300}
             />
           </div>
         </div>
         <div className="col-sm-6">
-          <div className="d-flex justify-content-center" style={styles.chart}>
-            <ReactSVG
-              src="icons/charts/main_chart.svg"
-              width={300}
-              height={300}
-            />
-          </div>
+          {/* <div className="d-flex justify-content-center" style={styles.chart}> */}
+          <GenericTable
+            columns={columns}
+            data={data}
+            // src="icons/charts/main_chart.svg"
+            // width={300}
+            // height={300}
+          />
+          {/* </div> */}
         </div>
       </div>
     </div>
@@ -143,4 +146,38 @@ const styles = {
   },
 };
 
+const columns = [
+  { dataType: "string", label: "Application ID", key: "id" },
+  { dataType: "string", label: "Type", key: "type" },
+  { dataType: "number", label: "Severity", key: "severity" },
+  { dataType: "timestamp", label: "Time", key: "time" },
+];
+const data = [
+  {
+    id: "123",
+    type: "Outlier",
+    severity: 67,
+    time: "31/12/2022",
+  },
+  {
+    id: "124",
+    type: "Anomaly",
+    severity: 45,
+    time: "31/12/2022",
+  },
+  {
+    id: "125",
+    type: "Outlier",
+    severity: 89,
+    time: "31/12/2022",
+  },
+  {
+    id: "126",
+    type: "Cluster",
+    severity: 31,
+    time: "31/6/2022",
+  },
+];
+// const actions = [];
+// const pagination = [];
 export default Dashboard;

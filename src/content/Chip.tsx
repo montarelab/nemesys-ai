@@ -1,7 +1,9 @@
+import React from "react";
 import { theme } from "../styles/theme";
 
 interface BaseChipProps {
   value: string;
+  size?: "sm" | "md";
 }
 
 interface TrendChipProps extends BaseChipProps {
@@ -13,6 +15,10 @@ interface ColorChipProps extends BaseChipProps {
   color: "error" | "success" | "secondary";
   trend?: never;
 }
+
+const scaleStyles = {
+  transform: "scale(0.65)",
+};
 
 type ChipProps = TrendChipProps | ColorChipProps;
 
@@ -28,11 +34,15 @@ const Chip = (props: ChipProps) => {
   let chipStyle: React.CSSProperties = {};
   let content = <>{props.value}</>;
 
+  if ("size" in props && props.size === "sm") {
+    chipStyle = { ...baseStyle, ...scaleStyles };
+  }
+
   if ("trend" in props && props.trend) {
     // Styles for trend
     const trendStyles = TREND_STYLES[props.trend];
     const trendArrow = props.trend === "up" ? "↑" : "↓";
-    chipStyle = { ...baseStyle, ...trendStyles };
+    chipStyle = { ...chipStyle, ...baseStyle, ...trendStyles };
     content = (
       <>
         <span style={{ marginRight: "5px" }}>{props.value}</span>
@@ -42,8 +52,12 @@ const Chip = (props: ChipProps) => {
   } else if ("color" in props) {
     // Styles for color
 
-    // console.log("props.color", props.color, hexToRGBA(  );
-    chipStyle = { ...baseStyle, ...CUSTOM_COLOR_STYLES[props.color] };
+    chipStyle = {
+      ...baseStyle,
+      ...chipStyle,
+      ...CUSTOM_COLOR_STYLES[props.color],
+    };
+    // chipStyle = { ...chipStyle };
   }
 
   return <div style={chipStyle}>{content}</div>;

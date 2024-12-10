@@ -22,23 +22,29 @@ const styles: { [key: string]: React.CSSProperties } = {
   tableContainer: {
     borderRadius: "15px",
     overflow: "hidden",
+    backgroundColor: theme.colors.backgroundSecondary,
+    border: "1px solid var(--background-light)", // Lighter border color
   },
   table: {
     borderCollapse: "collapse" as "collapse",
     width: "100%",
     tableLayout: "auto", // Ensure table layout is set to auto
     borderRadius: "15px",
-    border: "1px solid #ddd", // Lighter border color
+    borderTop: "1px solid var(--background-light)",
+    // border: "1px solid #ddd", // Lighter border color
   },
   th: {
-    border: "1px solid #ddd", // Lighter border color
-    padding: "8px",
+    // border: "1px solid #ddd", // Lighter border color
+    padding: "20px",
+    textAlign: "center",
+    // paddingLeft: "30px",
   },
   td: {
-    border: "1px solid #ddd", // Lighter border color
-    padding: "10px",
+    // border: "1px solid #ddd", // Lighter border color
+    padding: "20px",
     width: "auto",
     whiteSpace: "nowrap",
+    textAlign: "center",
   },
   actions: {
     margin: "0 5px",
@@ -60,7 +66,7 @@ const GenericTable = ({
 }: GenericTableProps) => {
   return (
     <div className="table-container" style={styles.tableContainer}>
-      {title && <h3>{title}</h3>}
+      {title && <h5 className="py-4 px-5">{title}</h5>}
       <table style={styles.table} className="generic-table">
         <thead>
           <tr>
@@ -87,7 +93,10 @@ const GenericTable = ({
                   return (
                     <td key={col.key} style={cellStyle}>
                       {col.dataType === "tags" && Array.isArray(cellData) ? (
-                        <div className="d-inline-flex" style={{ gap: "5px" }}>
+                        <div
+                          className="d-flex justify-content-center"
+                          style={{ gap: "5px" }}
+                        >
                           {cellData.map((tag: any, index: number) => (
                             <Chip
                               key={index}

@@ -7,8 +7,10 @@ interface PageHeaderProps {
 
 const PageHeader = ({ title, description }: PageHeaderProps) => {
   return (
-    <div style={styles.block}>
-      <h1 style={styles.header}>{title}</h1>
+    <div style={styles.block} className="mb-4">
+      <h3 style={styles.header} className="mb-3">
+        {title}
+      </h3>
       <p style={styles.desc}>{description}</p>
     </div>
   );
@@ -17,7 +19,7 @@ const PageHeader = ({ title, description }: PageHeaderProps) => {
 const styles = {
   block: {
     marginTop: "20px",
-    width: "60%",
+    width: "80%",
   },
   header: {
     margin: 0,

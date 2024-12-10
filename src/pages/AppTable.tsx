@@ -1,6 +1,7 @@
 import { theme } from "../styles/theme";
 import PageHeader from "../content/PageHeader";
 import GenericTable from "../content/GenericTable";
+import Button from "../control/Button";
 
 const AppTable = () => {
   const columns = [
@@ -57,13 +58,18 @@ const AppTable = () => {
       <div className="d-flex row">
         <div className="col-12">
           <PageHeader
-            title="App table"
-            description="This is the app table page"
+            title="Applications Table"
+            description="A searchable list of all registered applications with critical details and management options."
           />
         </div>
+
+        <div className="col-12 d-flex justify-content-center my-4">
+          <Button text="Add New" variant="primary" size="lg" />
+        </div>
+
         <div className="col-12 mt-4">
           <GenericTable
-            title="Applications"
+            title="Applications Table"
             columns={columns}
             data={data}
             // actions={actions}

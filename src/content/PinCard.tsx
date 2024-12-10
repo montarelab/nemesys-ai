@@ -1,5 +1,7 @@
+import React from "react";
 import { theme } from "../styles/theme";
 import Chip from "./Chip";
+import { ReactSVG } from "react-svg";
 
 interface PinCardProps {
   title: string;
@@ -15,19 +17,27 @@ const PinCard = ({ title, value, trendValue, trend }: PinCardProps) => {
   const trendArrow = trend === "up" ? "↑" : "↓";
 
   return (
-    <div style={styles.card}>
-      <div className="d-flex justify-content-between">
-        <div style={styles.title} className="col-9">
+    <div style={styles.card} className="w-100">
+      <div className="d-flex justify-content-between row">
+        <div style={styles.title} className="m-0 col-9 pr-0">
           {title}
         </div>
-        <div className="col-3">Options</div>
+        <div className="col-3">
+          <ReactSVG
+            className="pb-3"
+            src={`icons/other/more.svg`}
+            style={{ width: "20px", height: "20px" }}
+          />
+        </div>
       </div>
       <div className="col-12 d-flex justify-content-start mt-3">
         <div className="mr-3 d-flex align-items-center">
-          <h3 style={styles.value}>{value}</h3>
+          <h3 className="m-0" style={styles.value}>
+            {value}
+          </h3>
         </div>
-        <div>
-          <Chip value={trendValue} trend={trend} />
+        <div className="d-flex row justify-content-start">
+          <Chip value={trendValue} trend={trend} size="sm" />
         </div>
       </div>
     </div>
@@ -41,16 +51,15 @@ const styles = {
     borderRadius: "15px",
     backgroundColor: theme.colors.backgroundSecondary,
     color: theme.colors.text,
-    width: "100%",
   },
   title: {
-    margin: 0,
     fontSize: "12px",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
   },
   value: {
     color: theme.colors.textAttention,
-    // fontSize: "24px",
-    margin: 0,
   },
 };
 
@@ -74,14 +83,36 @@ const hexToRGBA = (hex: string, opacity: number) => {
 const TREND_STYLES = {
   up: {
     color: theme.colors.success,
-    border: "1px solid var(--success)",
-    backgroundColor: hexToRGBA("#05C168", 0.2),
+    border: `1px solid ${theme.colors.success}`,
+    backgroundColor: hexToRGBA(theme.colors.success, 0.2),
   },
   down: {
     color: theme.colors.error,
-    border: "1px solid var(--error)",
-    backgroundColor: hexToRGBA("#ff5a65", 0.2),
+    border: `1px solid ${theme.colors.error}`,
+    backgroundColor: hexToRGBA(theme.colors.error, 0.2),
   },
+};
+
+const CUSTOM_COLOR_STYLES = {
+  error: {
+    color: theme.colors.error,
+    border: `1px solid ${theme.colors.error}`,
+    backgroundColor: hexToRGBA(theme.colors.error, 0.2),
+  },
+  success: {
+    color: theme.colors.success,
+    border: `1px solid ${theme.colors.success}`,
+    backgroundColor: hexToRGBA(theme.colors.success, 0.2),
+  },
+  secondary: {
+    color: theme.colors.secondary,
+    border: `1px solid ${theme.colors.secondary}`,
+    backgroundColor: hexToRGBA(theme.colors.secondary, 0.2),
+  },
+};
+
+const scaleStyles = {
+  transform: "scale(0.5)",
 };
 
 export default PinCard;
