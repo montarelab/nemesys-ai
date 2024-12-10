@@ -1,6 +1,7 @@
 import React from "react";
 import { theme } from "../styles/theme";
 import { ReactSVG } from "react-svg";
+import { Link } from "react-router";
 
 interface LinkProps {
   href: string;
@@ -20,7 +21,7 @@ function SidebarLink({
     container: {
       display: "flex",
       alignItems: "center",
-      padding: "12px 16px",
+      // padding: "25px 10px",
       textDecoration: "none",
       color: isActive ? "#c293ff" : "#ffffff", // Active color is purple; default is white
       backgroundColor: isActive ? "#292b3d" : "transparent", // Highlight background for active
@@ -31,9 +32,9 @@ function SidebarLink({
     },
     icon: {
       marginRight: "12px",
-      fill: isActive ? theme.colors.primary : theme.colors.text, // Highlight background for active
-      width: "20px",
-      height: "20px",
+      stroke: isActive ? theme.colors.primary : theme.colors.text, // Highlight background for active
+      width: "30px",
+      height: "30px",
     },
     linkText: {
       fontWeight: isActive ? "600" : "400", // Bold text for active link
@@ -41,28 +42,31 @@ function SidebarLink({
   };
 
   return (
-    <a
-      href={link.href}
+    <Link
+      to={link.href}
       style={styles.container}
       title={link.name} // Tooltip on hover
     >
       {icon && (
+        // <svg width={30} height={30} style={styles.icon}>
+        //   <use href={icon} />
+        // </svg>
+
         <ReactSVG
           width={30}
           height={30}
           src={icon}
           style={styles.icon}
           beforeInjection={(svg) => {
-            svg.setAttribute("style", "fill: " + isActive ? "red" : "yellow"); // Change the color dynamically
+            svg.setAttribute(
+              "stroke",
+              isActive ? theme.colors.primary : theme.colors.text
+            );
           }}
-          // beforeInjection={(svg)}
         />
-        // <svg style={styles.icon} viewBox="0 0 30 30">
-        // <image href={icon} />
-        // </svg>
       )}
       <span style={styles.linkText}>{link.name}</span>
-    </a>
+    </Link>
   );
 }
 

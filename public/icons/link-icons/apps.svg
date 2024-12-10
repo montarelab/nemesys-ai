@@ -1,14 +1,3 @@
-<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_150_351)">
-<path d="M12 1.5H1.5V12H12V1.5Z" stroke="#AEB9E1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M28.5 27H18" stroke="#AEB9E1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M18 19.5H28.5" stroke="#AEB9E1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M28.5 12H18L22.971 1.5L28.5 12Z" stroke="#AEB9E1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M6.75 28.5C7.43944 28.5 8.12213 28.3642 8.75909 28.1004C9.39605 27.8365 9.9748 27.4498 10.4623 26.9623C10.9498 26.4748 11.3365 25.896 11.6004 25.2591C11.8642 24.6221 12 23.9394 12 23.25C12 22.5606 11.8642 21.8779 11.6004 21.2409C11.3365 20.604 10.9498 20.0252 10.4623 19.5377C9.9748 19.0502 9.39605 18.6635 8.75909 18.3996C8.12213 18.1358 7.43944 18 6.75 18C5.35761 18 4.02225 18.5531 3.03769 19.5377C2.05312 20.5223 1.5 21.8576 1.5 23.25C1.5 24.6424 2.05312 25.9777 3.03769 26.9623C4.02225 27.9469 5.35761 28.5 6.75 28.5Z" stroke="#AEB9E1" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<defs>
-<clipPath id="clip0_150_351">
-<rect width="30" height="30" fill="white"/>
-</clipPath>
-</defs>
+<svg width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M29 27H18.5M18.5 19.5H29M12.5 1.5H2V12H12.5V1.5ZM29 12H18.5L23.471 1.5L29 12ZM7.25 28.5C7.93944 28.5 8.62213 28.3642 9.25909 28.1004C9.89605 27.8365 10.4748 27.4498 10.9623 26.9623C11.4498 26.4748 11.8365 25.896 12.1004 25.2591C12.3642 24.6221 12.5 23.9394 12.5 23.25C12.5 22.5606 12.3642 21.8779 12.1004 21.2409C11.8365 20.604 11.4498 20.0252 10.9623 19.5377C10.4748 19.0502 9.89605 18.6635 9.25909 18.3996C8.62213 18.1358 7.93944 18 7.25 18C5.85761 18 4.52225 18.5531 3.53769 19.5377C2.55312 20.5223 2 21.8576 2 23.25C2 24.6424 2.55312 25.9777 3.53769 26.9623C4.52225 27.9469 5.85761 28.5 7.25 28.5Z"   stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

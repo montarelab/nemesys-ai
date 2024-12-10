@@ -1,14 +1,34 @@
 :root {
-    --primary: #cb3cff;
-    --secondary: #00c2ff;
-    --background-primary: #081028;
-    --background-secondary: #0b1739;
-    --error: #ff5a65;
-    --success: #05c168;
-    --text: #aeb9e1;
-    --text-attention: #ffffff;
-    --background-light: #343b4f;
-    --success-opacity: #05c168;
-    --error-opacity: #ff5a65;
-    --secondary-opacity: #00c2ff;
+  --primary: #cb3cff;
+  --secondary: #00c2ff;
+  --background-primary: #081028;
+  --background-secondary: #0b1739;
+  --error: #ff5a65;
+  --success: #05c168;
+  --text: #aeb9e1;
+  --text-attention: #ffffff;
+  --background-light: #343b4f;
+  --success-opacity: #05c168;
+  --error-opacity: #ff5a65;
+  --secondary-opacity: #00c2ff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text);
+  margin: 0 !important;
+  line-height: 1;
+}
+
+.sidebar-item {
+  padding: 25px 10px;
+}
+
+.search-input:focus {
+  background: none;
+  outline: none;
 }

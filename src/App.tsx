@@ -5,6 +5,7 @@ import Header from "./main/Header";
 import Sidebar from "./main/Sidebar";
 import "./styles/styles.css";
 import AppTable from "./pages/AppTable";
+import { theme } from "./styles/theme";
 import {
   Anomalies,
   AddApp,
@@ -20,42 +21,21 @@ function App() {
       <div className="App">
         <Header />
 
-        {/* <header className="App-header">  */}
-
         <div style={styles.container}>
           <Sidebar />
           <div style={styles.content}>
-            <div>
-              {/* Define your navigation */}
-              {/* <nav> */}
-              {/* <a href="/">Home</a> | <a href="/about">About</a> | <a href="/contact">Contact</a> */}
-              {/* </nav> */}
-
-              {/* Define the routes */}
-              <Routes>
-                <Route index path="/" element={<Dashboard />} />
-                <Route path="/appTable" element={<AppTable />} />
-                <Route path="/addApp" element={<AddApp />} />
-                <Route path="/anomalies" element={<Anomalies />} />
-                <Route path="/modelConfig" element={<ModelConfig />} />
-                <Route path="/rules" element={<Rules />} />
-              </Routes>
-            </div>
-            {/* <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.tsx</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a> */}
+            {/* <div> */}
+            <Routes>
+              <Route index path="/" element={<Dashboard />} />
+              <Route path="/applications" element={<AppTable />} />
+              <Route path="/addApp" element={<AddApp />} />
+              <Route path="/anomalies" element={<Anomalies />} />
+              <Route path="/modelConfig" element={<ModelConfig />} />
+              <Route path="/rules" element={<Rules />} />
+            </Routes>
+            {/* </div> */}
           </div>
         </div>
-        {/* </header> */}
       </div>
     </Router>
   );
@@ -64,12 +44,15 @@ function App() {
 const styles = {
   container: {
     display: "flex",
-    height: "calc(100vh - 80px)", // Adjusts for the header's height
+    height: "100%",
+    // height: "calc(100vh - 80px)", // Adjusts for the header's height
   },
   content: {
     flex: 1,
-    padding: "20px",
+    padding: "20px 50px",
     overflow: "auto",
+    backgroundColor: theme.colors.backgroundPrimary,
+    border: "2px solid var(--background-primary)",
   },
 };
 
