@@ -23,11 +23,12 @@ function SidebarLink({
       alignItems: "center",
       // padding: "25px 10px",
       textDecoration: "none",
-      color: isActive ? "#c293ff" : "#ffffff", // Active color is purple; default is white
-      backgroundColor: isActive ? "#292b3d" : "transparent", // Highlight background for active
+      color: isActive ? theme.colors.primary : "#ffffff", // Active color is purple; default is white
+      backgroundColor: isActive ? theme.colors.backgroundLight : "transparent", // Highlight background for active
       borderRadius: "4px",
       transition: "background-color 0.3s, color 0.3s",
       fontSize: "16px",
+      padding: "20px 10px",
       cursor: "pointer",
     },
     icon: {

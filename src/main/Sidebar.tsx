@@ -20,7 +20,7 @@ const Sidebar = () => {
       icon: "icons/link-icons/apps.svg",
     },
     {
-      href: "/attack-discovery",
+      href: "/anomalies",
       name: "Attack Discovery",
       icon: "icons/link-icons/anomalies.svg",
     },
@@ -58,7 +58,6 @@ const Sidebar = () => {
 
   const styles = {
     sidebar: {
-      width: "300px",
       padding: "20px",
     },
     list: {
@@ -88,7 +87,7 @@ const Sidebar = () => {
 
   return (
     <aside style={styles.aside}>
-      <nav style={styles.sidebar}>
+      <nav style={styles.sidebar} className="w-100">
         <div className="sidebar-item">
           <SearchInput />
         </div>

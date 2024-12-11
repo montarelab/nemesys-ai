@@ -20,8 +20,11 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="d-flex justify-content-between" style={styles.pinCards}>
-        <div className="col-md-3 col-sm-6 col-xs-12">
+      <div
+        className="d-flex row justify-content-between"
+        style={styles.pinCards}
+      >
+        <div className="col-12 col-sm-6 col-md-3  ">
           <PinCard
             title="Requests per last week"
             value="32K"
@@ -58,8 +61,8 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="d-flex justify-content-between mt-3">
-        <div className="col-sm-6">
+      <div className="d-flex row justify-content-between mt-3">
+        <div className="col-12 col-lg-6">
           <div className="d-flex justify-content-center" style={styles.chart}>
             <ReactSVG
               src="icons/charts/main_chart.svg"
@@ -70,7 +73,7 @@ const Dashboard = () => {
         </div>
         <div
           style={styles.horizontalCharts}
-          className="col-sm-6 d-flex flex-column justify-content-between"
+          className="col-12 col-lg-6 d-flex flex-column justify-content-between"
         >
           <div className="" style={styles.chart}>
             <ReactSVG
@@ -101,8 +104,8 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="d-flex justify-content-between mt-3">
-        <div className="col-sm-6">
+      <div className="d-flex row justify-content-between mt-3">
+        <div className="col-12 col-lg-6">
           <div className="d-flex justify-content-center" style={styles.chart}>
             <ReactSVG
               src="icons/charts/availability_bar.svg"
@@ -111,7 +114,7 @@ const Dashboard = () => {
             />
           </div>
         </div>
-        <div className="col-sm-6">
+        <div className="col-12 col-lg-6">
           {/* <div className="d-flex justify-content-center" style={styles.chart}> */}
           <GenericTable
             columns={columns}

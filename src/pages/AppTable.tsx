@@ -64,7 +64,7 @@ const AppTable = () => {
         </div>
 
         <div className="col-12 d-flex justify-content-center my-4">
-          <Button text="Add New" variant="primary" size="lg" />
+          <Button text="Add New" variant="primary" size="lg" href="/addApp" />
         </div>
 
         <div className="col-12 mt-4">

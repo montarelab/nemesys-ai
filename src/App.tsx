@@ -21,19 +21,24 @@ function App() {
       <div className="App">
         <Header />
 
-        <div style={styles.container}>
+        <div
+          style={styles.container}
+          className="d-flex h-100 flex-column flex-lg-row "
+        >
           <Sidebar />
-          <div style={styles.content}>
-            {/* <div> */}
-            <Routes>
-              <Route index path="/" element={<Dashboard />} />
-              <Route path="/applications" element={<AppTable />} />
-              <Route path="/addApp" element={<AddApp />} />
-              <Route path="/anomalies" element={<Anomalies />} />
-              <Route path="/modelConfig" element={<ModelConfig />} />
-              <Route path="/rules" element={<Rules />} />
-            </Routes>
-            {/* </div> */}
+          <div style={styles.content} className="d-flex row w-100">
+            <div className="col-md-0 col-xl-2"></div>
+            <div className="col-md-12 col-xl-8">
+              <Routes>
+                <Route index path="/" element={<Dashboard />} />
+                <Route path="/applications" element={<AppTable />} />
+                <Route path="/addApp" element={<AddApp />} />
+                <Route path="/anomalies" element={<Anomalies />} />
+                <Route path="/modelConfig" element={<ModelConfig />} />
+                <Route path="/rules" element={<Rules />} />
+              </Routes>
+            </div>
+            <div className="col-md-0 col-xl-2"></div>
           </div>
         </div>
       </div>
@@ -42,15 +47,11 @@ function App() {
 }
 
 const styles = {
-  container: {
-    display: "flex",
-    height: "100%",
-    // height: "calc(100vh - 80px)", // Adjusts for the header's height
-  },
+  container: {},
   content: {
-    flex: 1,
-    padding: "20px 200px",
-    overflow: "auto",
+    // flex: 1,
+    padding: "20px 0",
+    // overflow: "auto",
     backgroundColor: theme.colors.backgroundPrimary,
     border: "2px solid var(--background-primary)",
   },

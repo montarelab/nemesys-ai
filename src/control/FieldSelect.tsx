@@ -24,7 +24,7 @@ const FieldSelector = ({
   defaultFields,
   onFieldChange,
 }: FieldSelectorProps) => (
-  <div className="input-section">
+  <div className="input-section mt-4">
     <FieldHeader
       id={id}
       title={title}
@@ -38,11 +38,14 @@ const FieldSelector = ({
       className="select-input"
       style={styles.input}
     >
-      <option value="CPU">CPU</option>
-      <option value="Memory">Memory</option>
-      <option value="Geo location">Geo location</option>
-      <option value="Severity">Severity</option>
-      <option value="Requests per day">Requests per day</option>
+      <option style={styles.placeholder} value="" disabled hidden>
+        {placeholder}
+      </option>
+      {options &&
+        Array.isArray(options) &&
+        options.map((option, index) => (
+          <option value={option}>{option}</option>
+        ))}
     </select>
   </div>
 );
@@ -63,5 +66,8 @@ const styles = {
     border: `1px solid ${theme.colors.backgroundLight}`,
     backgroundColor: theme.colors.backgroundSecondary,
     color: theme.colors.textAttention,
+  },
+  placeholder: {
+    color: theme.colors.text,
   },
 };
