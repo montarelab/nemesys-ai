@@ -6,9 +6,10 @@ interface ButtonProps {
   variant: "primary" | "secondary";
   size?: "sm" | "lg";
   href?: string;
+  onClick?: () => void;
 }
 
-const Button = ({ text, variant, size, href }: ButtonProps) => {
+const Button = ({ text, variant, size, href, onClick }: ButtonProps) => {
   const variantStyles = BUTTON_VARIANTS[variant];
   const baseStyles = {
     padding: "10px 20px",
@@ -28,7 +29,11 @@ const Button = ({ text, variant, size, href }: ButtonProps) => {
     );
   }
 
-  return <button style={styles}>{text}</button>;
+  return (
+    <button type="button" onClick={onClick} style={styles}>
+      {text}
+    </button>
+  );
 };
 
 const BUTTON_VARIANTS = {
@@ -38,7 +43,8 @@ const BUTTON_VARIANTS = {
   },
   secondary: {
     backgroundColor: theme.colors.backgroundSecondary,
-    color: theme.colors.primary,
+    color: theme.colors.text,
+    border: "1px solid var(--background-light)",
   },
 };
 

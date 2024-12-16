@@ -1,9 +1,7 @@
-import { theme } from "../styles/theme";
 import PageHeader from "../content/PageHeader";
 import TextInput from "../control/TextInput";
 import AppSlider from "../control/AppSlider";
 import FieldSelector from "../control/FieldSelect";
-import { ReactSVG } from "react-svg";
 import Button from "../control/Button";
 import FieldHeader from "../control/FieldHeader";
 import GenericTable from "../content/GenericTable";
@@ -23,15 +21,11 @@ const Rules = () => {
     { dataType: "string", label: "Rule ID", key: "id" },
     { dataType: "string", label: "Rule Action", key: "action" },
     { dataType: "timestamp", label: "Last Model Update", key: "time" },
-    // { dataType: "actions", label: "Actions", key: "actions" },
   ];
   const data = [
     { id: "RULE-20241118-001", action: "Send Email", time: "31/12/2022" },
-
     { id: "RULE-20241118-002", action: "Slack Message", time: "31/12/2022" },
-
     { id: "RULE-20241118-003", action: "Webhook Trigger", time: "31/12/2022" },
-
     { id: "RULE-20241118-004", action: "Send Email", time: "31/12/2022" },
   ];
 
@@ -47,26 +41,9 @@ const Rules = () => {
           title="Applications Table"
           columns={columns}
           data={data}
-          // actions={actions}
-          // pagination={pagination}
+          actions
         />
       </div>
-      {/* <div className="d-flex row justify-content-between mt-3">
-        <div className="col-sm-6">
-          <div className="d-flex justify-content-center" style={styles.chart}>
-            <ReactSVG
-              src="icons/charts/pr_curve.svg"
-              width={300}
-              height={300}
-            />
-          </div>
-        </div>
-        <div className="col-sm-6">
-          <div className="d-flex justify-content-center" style={styles.chart}>
-            <ReactSVG src="icons/charts/heatmap.svg" width={300} height={300} />
-          </div>
-        </div>
-      </div> */}
 
       <FieldSelector
         id="model"
@@ -78,22 +55,6 @@ const Rules = () => {
         required
         value=""
       />
-
-      <div className="d-flex row">
-        <div className="col-9">
-          <TextInput
-            id="tags"
-            title="Add or create tags"
-            description="Assign or generate tags to group and filter alerts effectively."
-            placeholder="Asia-checker, holiday day, ..."
-            required
-            value=""
-          />
-        </div>
-        <div className="col-3 d-flex align-items-bottom">
-          <Button text="Upload" variant="secondary" />
-        </div>
-      </div>
 
       <AppSlider
         id="sensitivity"
@@ -239,24 +200,6 @@ const Rules = () => {
       </div>
     </div>
   );
-};
-const styles = {
-  content: {
-    // color: theme.colors.text,
-  },
-  pinCards: {
-    // gap: "10px",
-  },
-  chart: {
-    // backgroundColor: theme.colors.backgroundSecondary,
-    padding: "20px",
-    // borderRadius: "15px",
-    // border: "1px solid var(--background-light)",
-  },
-  horizontalCharts: {
-    color: "red",
-    // flexDirection: "column",
-  },
 };
 
 export default Rules;

@@ -38,7 +38,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   valueLabel: {
     position: "absolute",
-    top: "-25px",
+    top: "35px",
     left: "50%",
     transform: "translateX(-50%)",
     backgroundColor: theme.colors.backgroundSecondary,

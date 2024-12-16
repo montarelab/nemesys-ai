@@ -2,27 +2,40 @@
 import React from "react";
 import { theme } from "../styles/theme";
 import { ReactSVG } from "react-svg";
+import { useState } from "react";
 // import icon from "../../public/icons/link-icons/theme.svg";
 
-const Header = () => {
+interface HeaderProps {
+  toggleSidebar: () => void;
+}
+
+const Header = ({ toggleSidebar }: HeaderProps) => {
   return (
     <header
       style={styles.header}
       className="d-flex justify-content-between px-5"
     >
-      <span style={styles.title} className="m-0">
-        NemesysAI
-      </span>
+      <div className="row d-flex justify-content-between">
+        <ReactSVG
+          src="icons/link-icons/burger.svg"
+          width={35}
+          height={35}
+          onClick={toggleSidebar}
+          className="d-flex align-items-center d-lg-none mr-5 "
+        />
+        <span style={styles.title} className="m-0">
+          NemesysAI
+        </span>
+      </div>
+
+      {/* <div className="row d-flex justify-content-between"> */}
       <ReactSVG
         src="icons/link-icons/theme.svg"
         width={35}
         height={35}
         className="d-flex align-items-center"
-        // style={}
-        // beforeInjection={(svg) => {
-        //   svg.setAttribute("style", "width: 30px; height: 30px");
-        // }}
       />
+      {/* </div> */}
     </header>
   );
 };

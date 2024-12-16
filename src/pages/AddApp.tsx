@@ -57,6 +57,8 @@ const AddApp = () => {
         value=""
       />
 
+      <div className="my-3 d-block"></div>
+
       <FieldSelector
         id="metrics"
         title="Metrics to monitor"

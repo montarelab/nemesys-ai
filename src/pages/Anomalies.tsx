@@ -19,49 +19,45 @@ const Anomalies = () => {
   ];
 
   const columns = [
-    { dataType: "string", label: "Application ID", key: "id" },
-    { dataType: "string", label: "Application Name", key: "name" },
-    { dataType: "tags", label: "Tags", key: "tags" },
-    { dataType: "tags", label: "Health Status", key: "status" },
-    { dataType: "timestamp", label: "Last Model Update", key: "time" },
-    { dataType: "plot", label: "Performance", key: "peformance" },
+    { dataType: "string", label: "Anomaly ID", key: "id" },
+    { dataType: "string", label: "Status", key: "status" },
+    { dataType: "string", label: "Region", key: "region" },
+    { dataType: "string", label: "Type", key: "type" },
+    { dataType: "string", label: "Timestamp", key: "time" },
+    { dataType: "int", label: "Severity", key: "severity" },
   ];
   const data = [
     {
-      id: "123",
-      name: "App 1",
-      tags: [
-        { color: "error", value: "Disactive" },
-        { color: "success", value: "Active" },
-        { color: "secondary", value: "Active" },
-      ],
-      status: [{ color: "success", value: "Active" }],
+      id: "ANOM-20241118-001",
+      status: "Open",
+      region: "Afghanistan",
+      type: "Outlier",
       time: "2021-07-01",
-      peformance: "icons/charts/performance.svg",
+      severity: 67,
     },
     {
-      id: "124",
-      name: "App 2",
-      tags: [
-        { color: "error", value: "Disactive" },
-        { color: "success", value: "Active" },
-        { color: "secondary", value: "Active" },
-      ],
-      status: [{ color: "error", value: "Disactive" }],
+      id: "ANOM-20241118-002",
+      status: "Resolved",
+      region: "China",
+      type: "Cluster",
       time: "2021-07-02",
-      peformance: "icons/charts/performance.svg",
+      severity: 79,
     },
     {
-      id: "125",
-      name: "App 3",
-      tags: [
-        { color: "error", value: "Disactive" },
-        { color: "success", value: "Active" },
-        { color: "secondary", value: "Active" },
-      ],
-      status: [{ color: "success", value: "Active" }],
+      id: "ANOM-20241118-003",
+      status: "Pending",
+      region: "Canada",
+      type: "Threshold",
       time: "2021-07-03",
-      peformance: "icons/charts/performance.svg",
+      severity: 81,
+    },
+    {
+      id: "ANOM-20241118-004",
+      status: "Resolved",
+      region: "United Kingdom",
+      type: "Outluer",
+      time: "2021-07-03",
+      severity: 53,
     },
   ];
 
@@ -81,15 +77,29 @@ const Anomalies = () => {
         />
       </div>
 
-      <div className="d-flex justify-content-center" style={styles.chart}>
-        <ReactSVG src="icons/charts/geomap.svg" width={1000} />
+      <div
+        className="d-flex row justify-content-center m-0"
+        style={styles.chart}
+      >
+        <div className="col-0 col-md-3"></div>
+        <div className="col-12 col-md-6">
+          <img
+            src="icons/charts/geomap.svg"
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
+        </div>
+        <div className="col-0 col-md-3"></div>
       </div>
 
       <div className="col-12 mt-4 p-0">
         <GenericTable
-          title="Applications Table"
+          title="Anomalies Table"
           columns={columns}
           data={data}
+          actions
           // actions={actions}
           // pagination={pagination}
         />

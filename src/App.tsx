@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Header from "./main/Header";
@@ -15,20 +15,43 @@ import {
 } from "./pages/index";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
+const App = () => {
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
+  const [isScreenLarge, setIsScreenLarge] = useState(window.innerWidth >= 992); // lg breakpoint is 992px
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsScreenLarge(window.innerWidth >= 992);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  function toggleSidebar() {
+    setIsSidebarVisible(!isSidebarVisible);
+  }
+
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Header toggleSidebar={toggleSidebar} />
 
         <div
           style={styles.container}
-          className="d-flex h-100 flex-column flex-lg-row "
+          className="d-flex flex-column flex-lg-row "
         >
-          <Sidebar />
-          <div style={styles.content} className="d-flex row w-100">
-            <div className="col-md-0 col-xl-2"></div>
-            <div className="col-md-12 col-xl-8">
+          {(isSidebarVisible || isScreenLarge) && <Sidebar />}
+          <div style={styles.content} className="d-flex row m-0 w-100">
+            <div className="col-md-0 col-lg-1 col-xxl-2"></div>
+            <div
+              className="col-md-12 col-lg-10 col-xxl-8"
+              style={{ height: "100%" }}
+            >
               <Routes>
                 <Route index path="/" element={<Dashboard />} />
                 <Route path="/applications" element={<AppTable />} />
@@ -38,20 +61,19 @@ function App() {
                 <Route path="/rules" element={<Rules />} />
               </Routes>
             </div>
-            <div className="col-md-0 col-xl-2"></div>
+            <div className="col-md-0 col-lg-1 col-xxl-2"></div>
           </div>
         </div>
       </div>
     </Router>
   );
-}
+};
 
 const styles = {
   container: {},
   content: {
-    // flex: 1,
+    minHeight: "100vh",
     padding: "20px 0",
-    // overflow: "auto",
     backgroundColor: theme.colors.backgroundPrimary,
     border: "2px solid var(--background-primary)",
   },

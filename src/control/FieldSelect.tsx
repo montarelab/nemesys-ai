@@ -9,7 +9,7 @@ interface FieldSelectorProps {
   required?: boolean;
   value: string;
   options: string[];
-  defaultFields: string[];
+  defaultFields?: string[] | null;
   onFieldChange?: (field: string) => void;
 }
 
@@ -24,7 +24,7 @@ const FieldSelector = ({
   defaultFields,
   onFieldChange,
 }: FieldSelectorProps) => (
-  <div className="input-section mt-4">
+  <div className="input-section my-5">
     <FieldHeader
       id={id}
       title={title}
@@ -33,12 +33,12 @@ const FieldSelector = ({
     />
     <select
       id={id}
-      value={defaultFields}
+      // value={defaultFields}
       onChange={(e) => (onFieldChange ? onFieldChange(e.target.value) : e)}
       className="select-input"
       style={styles.input}
     >
-      <option style={styles.placeholder} value="" disabled hidden>
+      <option style={styles.placeholder} hidden>
         {placeholder}
       </option>
       {options &&

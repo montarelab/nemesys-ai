@@ -6,7 +6,7 @@ import { ReactSVG } from "react-svg";
 interface GenericTableProps {
   columns: Column[];
   data: any[];
-  actions?: any[];
+  actions?: boolean;
   pagination?: any;
   title?: string; // Add a title prop for the table header
 }
@@ -21,12 +21,14 @@ interface Column {
 const styles: { [key: string]: React.CSSProperties } = {
   tableContainer: {
     borderRadius: "15px",
-    overflow: "hidden",
+    width: "100%",
+    overflowX: "auto",
+
     backgroundColor: theme.colors.backgroundSecondary,
     border: "1px solid var(--background-light)", // Lighter border color
   },
   table: {
-    borderCollapse: "collapse" as "collapse",
+    borderCollapse: "collapse",
     width: "100%",
     tableLayout: "auto", // Ensure table layout is set to auto
     borderRadius: "15px",
@@ -34,13 +36,10 @@ const styles: { [key: string]: React.CSSProperties } = {
     // border: "1px solid #ddd", // Lighter border color
   },
   th: {
-    // border: "1px solid #ddd", // Lighter border color
     padding: "20px",
     textAlign: "center",
-    // paddingLeft: "30px",
   },
   td: {
-    // border: "1px solid #ddd", // Lighter border color
     padding: "20px",
     width: "auto",
     whiteSpace: "nowrap",
@@ -78,6 +77,7 @@ const GenericTable = ({
                 </th>
               );
             })}
+            {actions && <th>Actions</th>}
           </tr>
         </thead>
         <tbody>
@@ -119,17 +119,21 @@ const GenericTable = ({
                 })}
                 {actions && (
                   <td>
-                    {Array.isArray(actions) &&
-                      actions.map((action, index) => (
-                        <button
-                          key={index}
-                          onClick={() => action.onClick(row)}
-                          className={action.className}
-                          style={styles.actions}
-                        >
-                          {action.label}
-                        </button>
-                      ))}
+                    {actions && (
+                      <div className="d-flex justify-content-start align-items-center">
+                        <ReactSVG
+                          src="icons/link-icons/approve.svg"
+                          height={13}
+                          width={13}
+                        />
+                        <ReactSVG
+                          src="icons/link-icons/reject.svg"
+                          height={13}
+                          className="ml-3"
+                          width={13}
+                        />
+                      </div>
+                    )}
                   </td>
                 )}
               </tr>

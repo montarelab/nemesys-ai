@@ -5,6 +5,7 @@ import AppSlider from "../control/AppSlider";
 import FieldSelector from "../control/FieldSelect";
 import { ReactSVG } from "react-svg";
 import Button from "../control/Button";
+import FileUpload from "../control/FileUpload";
 
 const ModelConfig = () => {
   let threshold = 0;
@@ -24,18 +25,26 @@ const ModelConfig = () => {
         description="A page to customize and manage the anomaly detection model's parameters for enhanced accuracy."
       />
       <div className="d-flex row justify-content-between mt-3">
-        <div className="col-12 col-lg-6">
+        <div className="col-12 col-md-6">
           <div className="d-flex justify-content-center" style={styles.chart}>
-            <ReactSVG
+            <img
               src="icons/charts/pr_curve.svg"
-              width={300}
-              height={300}
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
             />
           </div>
         </div>
-        <div className="col-12 col-lg-6">
+        <div className="col-12 col-md-6">
           <div className="d-flex justify-content-center" style={styles.chart}>
-            <ReactSVG src="icons/charts/heatmap.svg" width={300} height={300} />
+            <img
+              src="icons/charts/heatmap.svg"
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
+            />
           </div>
         </div>
       </div>
@@ -51,13 +60,24 @@ const ModelConfig = () => {
         value=""
       />
 
-      <div className="d-flex row">
+      {/* <FileUpload /> */}
+
+      <FileUpload
+        id="tags"
+        title="Training Dataset"
+        description="Provide data for training the model to identify patterns and anomalies."
+        placeholder="Choose file"
+        required
+        value=""
+      />
+
+      {/* <div className="d-flex row">
         <div className="col-9">
           <TextInput
             id="tags"
-            title="Add or create tags"
-            description="Assign or generate tags to group and filter alerts effectively."
-            placeholder="Asia-checker, holiday day, ..."
+            title="Training Dataset"
+            description="Provide data for training the model to identify patterns and anomalies."
+            placeholder="Choose file"
             required
             value=""
           />
@@ -65,7 +85,7 @@ const ModelConfig = () => {
         <div className="col-3 d-flex align-items-bottom">
           <Button text="Upload" variant="secondary" />
         </div>
-      </div>
+      </div> */}
       <FieldSelector
         id="scaling"
         title="Define preprocessing options for normalizing dataset features."
@@ -142,22 +162,12 @@ const ModelConfig = () => {
   );
 };
 const styles = {
-  content: {
-    // color: theme.colors.text,
-  },
-  pinCards: {
-    // gap: "10px",
-  },
+  content: {},
+  pinCards: {},
   chart: {
-    // backgroundColor: theme.colors.backgroundSecondary,
     padding: "20px",
-    // borderRadius: "15px",
-    // border: "1px solid var(--background-light)",
   },
-  horizontalCharts: {
-    color: "red",
-    // flexDirection: "column",
-  },
+  horizontalCharts: {},
 };
 
 export default ModelConfig;

@@ -17,7 +17,7 @@ const PinCard = ({ title, value, trendValue, trend }: PinCardProps) => {
   const trendArrow = trend === "up" ? "↑" : "↓";
 
   return (
-    <div style={styles.card} className="w-100">
+    <div style={styles.card} className="w-100 mt-3">
       <div className="d-flex justify-content-between row">
         <div style={styles.title} className="m-0 col-9 pr-0">
           {title}

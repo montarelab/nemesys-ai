@@ -19,18 +19,18 @@ const SearchInput: React.FC<SearchInputProps> = ({
   };
 
   return (
-    <div style={styles.searchDiv} className="d-flex position-relative">
+    <div style={styles.searchDiv} className="d-flex align-items-center ">
       <ReactSVG
         width={16}
         height={16}
-        className="position-absolute"
+        className="ml-2 mr-4"
         style={styles.searchIcon}
         src="icons/link-icons/Search.svg"
       />
 
       <input
         type="text"
-        className="ml-1  search-input"
+        className="pl-1  search-input"
         style={styles.input}
         placeholder={placeholder}
         onChange={handleInputChange}
@@ -73,11 +73,11 @@ const styles = {
     backgroundColor: theme.colors.backgroundLight,
     border: "0.6px solid var(--text)",
     borderRadius: "4px",
-    padding: "14px 0 14px 50px",
+    padding: "14px 0 14px 10px",
     color: theme.colors.textAttention,
   },
   searchIcon: {
-    top: "30%",
-    left: "5%",
+    // top: "30%",
+    // left: "7%",
   },
 };
