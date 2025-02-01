@@ -1,4 +1,3 @@
-import { theme } from "../styles/theme";
 import PageHeader from "../content/PageHeader";
 import GenericTable from "../content/GenericTable";
 import Button from "../control/Button";
@@ -50,8 +49,6 @@ const AppTable = () => {
       peformance: "icons/charts/performance.svg",
     },
   ];
-  // const actions = [];
-  // const pagination = [];
 
   return (
     <div>
@@ -72,8 +69,6 @@ const AppTable = () => {
             title="Applications Table"
             columns={columns}
             data={data}
-            // actions={actions}
-            // pagination={pagination}
           />
         </div>
       </div>

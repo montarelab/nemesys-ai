@@ -1,4 +1,3 @@
-import React from "react";
 import SidebarLink from "./SidebarLink";
 import { useState, useEffect } from "react";
 import { theme } from "../styles/theme";
@@ -6,7 +5,7 @@ import { useLocation } from "react-router";
 import SearchInput from "../control/SearchInput";
 
 const Sidebar = () => {
-  const location = useLocation(); // Tracks the current URL path
+  const location = useLocation();
   const [activeLink, setActiveLink] = useState(location.pathname);
   const links = [
     {
@@ -102,12 +101,10 @@ const Sidebar = () => {
           </div>
         ))}
 
-        {/* Horizontal Divider */}
         <hr
           style={{ margin: "16px 0", border: "0", borderTop: "1px solid #333" }}
         />
 
-        {/* Settings and Account Links */}
         {settingsLinks.map((link) => (
           <div className="sidebar-item">
             <SidebarLink

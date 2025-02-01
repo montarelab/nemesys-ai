@@ -18,7 +18,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     width: "100%",
     appearance: "none",
     height: "8px",
-    background: "#ccc", // Grey color for the track
+    background: "#ccc",
     outline: "none",
     opacity: "0.7",
     transition: "opacity .15s ease-in-out",
@@ -49,7 +49,6 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
 };
 
-// Add the thumb styles using pseudo-elements
 const sliderThumbStyles = `
   input[type="range"]::-webkit-slider-thumb {
     appearance: none;
@@ -90,7 +89,7 @@ const AppSlider = ({
   };
   return (
     <div className="my-5">
-      <style>{sliderThumbStyles}</style> {/* Inject the thumb styles */}
+      <style>{sliderThumbStyles}</style>
       <FieldHeader
         id={id}
         title={title}

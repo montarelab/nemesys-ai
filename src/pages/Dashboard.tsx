@@ -2,12 +2,52 @@ import { theme } from "../styles/theme";
 import PageHeader from "../content/PageHeader";
 import Button from "../control/Button";
 import PinCard from "../content/PinCard";
-import { ReactSVG } from "react-svg";
 import GenericTable from "../content/GenericTable";
 
+const styles = {
+  chart: {
+    backgroundColor: theme.colors.backgroundSecondary,
+    padding: "20px",
+    borderRadius: "15px",
+    border: "1px solid var(--background-light)",
+  },
+};
+
 const Dashboard = () => {
+  const columns = [
+    { dataType: "string", label: "Application ID", key: "id" },
+    { dataType: "string", label: "Type", key: "type" },
+    { dataType: "number", label: "Severity", key: "severity" },
+    { dataType: "timestamp", label: "Time", key: "time" },
+  ];
+  const data = [
+    {
+      id: "123",
+      type: "Outlier",
+      severity: 67,
+      time: "31/12/2022",
+    },
+    {
+      id: "124",
+      type: "Anomaly",
+      severity: 45,
+      time: "31/12/2022",
+    },
+    {
+      id: "125",
+      type: "Outlier",
+      severity: 89,
+      time: "31/12/2022",
+    },
+    {
+      id: "126",
+      type: "Cluster",
+      severity: 31,
+      time: "31/6/2022",
+    },
+  ];
   return (
-    <div style={styles.content}>
+    <div>
       <div className="d-flex row mb-3">
         <div className="col-12 col-md-9 col-lg-8">
           <PageHeader
@@ -20,7 +60,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="d-flex row " style={styles.pinCards}>
+      <div className="d-flex row">
         <div className="col-12 col-sm-6 col-xl-3  ">
           <PinCard
             title="Requests per last week"
@@ -74,7 +114,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div
-          style={styles.horizontalCharts}
+          style={{ color: "red" }}
           className="col-12 col-lg-5 d-flex flex-column justify-content-between"
         >
           <div className="mt-3 h-100" style={styles.chart}>
@@ -122,7 +162,6 @@ const Dashboard = () => {
             <img
               src="icons/charts/availability_bar.svg"
               style={{
-                // margin: "auto 0",
                 width: "100%",
                 height: "100%",
               }}
@@ -137,57 +176,4 @@ const Dashboard = () => {
   );
 };
 
-const styles = {
-  content: {
-    // color: theme.colors.text,
-  },
-  pinCards: {
-    // gap: "10px",
-  },
-  chart: {
-    backgroundColor: theme.colors.backgroundSecondary,
-    padding: "20px",
-    borderRadius: "15px",
-    border: "1px solid var(--background-light)",
-  },
-  horizontalCharts: {
-    color: "red",
-    // flexDirection: "column",
-  },
-};
-
-const columns = [
-  { dataType: "string", label: "Application ID", key: "id" },
-  { dataType: "string", label: "Type", key: "type" },
-  { dataType: "number", label: "Severity", key: "severity" },
-  { dataType: "timestamp", label: "Time", key: "time" },
-];
-const data = [
-  {
-    id: "123",
-    type: "Outlier",
-    severity: 67,
-    time: "31/12/2022",
-  },
-  {
-    id: "124",
-    type: "Anomaly",
-    severity: 45,
-    time: "31/12/2022",
-  },
-  {
-    id: "125",
-    type: "Outlier",
-    severity: 89,
-    time: "31/12/2022",
-  },
-  {
-    id: "126",
-    type: "Cluster",
-    severity: 31,
-    time: "31/6/2022",
-  },
-];
-// const actions = [];
-// const pagination = [];
 export default Dashboard;

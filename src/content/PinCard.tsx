@@ -1,4 +1,3 @@
-import React from "react";
 import { theme } from "../styles/theme";
 import Chip from "./Chip";
 import { ReactSVG } from "react-svg";
@@ -13,8 +12,6 @@ interface PinCardProps {
 const PinCard = ({ title, value, trendValue, trend }: PinCardProps) => {
   let trendStyles = TREND_STYLES[trend];
   trendStyles = { ...baseTrendStyles, ...trendStyles };
-
-  const trendArrow = trend === "up" ? "↑" : "↓";
 
   return (
     <div style={styles.card} className="w-100 mt-3">
@@ -67,10 +64,8 @@ const baseTrendStyles = {
   fontSize: "14px",
   borderRadius: "5px",
   padding: "5px 10px",
-  //   border
 };
 
-// Utility function to convert hex color to RGBA
 const hexToRGBA = (hex: string, opacity: number) => {
   const trimmedHex = hex.replace("#", "");
   const bigint = parseInt(trimmedHex, 16);
@@ -91,28 +86,6 @@ const TREND_STYLES = {
     border: `1px solid ${theme.colors.error}`,
     backgroundColor: hexToRGBA(theme.colors.error, 0.2),
   },
-};
-
-const CUSTOM_COLOR_STYLES = {
-  error: {
-    color: theme.colors.error,
-    border: `1px solid ${theme.colors.error}`,
-    backgroundColor: hexToRGBA(theme.colors.error, 0.2),
-  },
-  success: {
-    color: theme.colors.success,
-    border: `1px solid ${theme.colors.success}`,
-    backgroundColor: hexToRGBA(theme.colors.success, 0.2),
-  },
-  secondary: {
-    color: theme.colors.secondary,
-    border: `1px solid ${theme.colors.secondary}`,
-    backgroundColor: hexToRGBA(theme.colors.secondary, 0.2),
-  },
-};
-
-const scaleStyles = {
-  transform: "scale(0.5)",
 };
 
 export default PinCard;

@@ -9,14 +9,6 @@ import GenericTable from "../content/GenericTable";
 const Rules = () => {
   let threshold = 0;
 
-  const cpuOptions = [
-    "CPU",
-    "Memory",
-    "Geo location",
-    "Severity",
-    "Requests per day",
-  ];
-
   const columns = [
     { dataType: "string", label: "Rule ID", key: "id" },
     { dataType: "string", label: "Rule Action", key: "action" },
@@ -125,17 +117,6 @@ const Rules = () => {
         value=""
       />
 
-      <FieldSelector
-        id="field"
-        title="Field"
-        description="Create specific conditions to determine when an alert should be triggered."
-        placeholder="Asia-checker, holiday day, ..."
-        options={cpuOptions}
-        defaultFields={["CPU"]}
-        required
-        value=""
-      />
-
       <FieldHeader
         id="condition"
         title="Condition"
@@ -185,11 +166,6 @@ const Rules = () => {
             value=""
           />
         </div>
-
-        {/* <div className="mx-2">
-          <Button text="Save" variant="primary" />
-        </div>
-        <Button text="Export settings" variant="secondary" /> */}
       </div>
 
       <div className="d-flex justify-content-end mt-3">

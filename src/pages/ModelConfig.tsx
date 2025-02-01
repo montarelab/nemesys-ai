@@ -1,11 +1,15 @@
-import { theme } from "../styles/theme";
 import PageHeader from "../content/PageHeader";
 import TextInput from "../control/TextInput";
 import AppSlider from "../control/AppSlider";
 import FieldSelector from "../control/FieldSelect";
-import { ReactSVG } from "react-svg";
 import Button from "../control/Button";
 import FileUpload from "../control/FileUpload";
+
+const styles = {
+  chart: {
+    padding: "20px",
+  },
+};
 
 const ModelConfig = () => {
   let threshold = 0;
@@ -60,8 +64,6 @@ const ModelConfig = () => {
         value=""
       />
 
-      {/* <FileUpload /> */}
-
       <FileUpload
         id="tags"
         title="Training Dataset"
@@ -70,22 +72,6 @@ const ModelConfig = () => {
         required
         value=""
       />
-
-      {/* <div className="d-flex row">
-        <div className="col-9">
-          <TextInput
-            id="tags"
-            title="Training Dataset"
-            description="Provide data for training the model to identify patterns and anomalies."
-            placeholder="Choose file"
-            required
-            value=""
-          />
-        </div>
-        <div className="col-3 d-flex align-items-bottom">
-          <Button text="Upload" variant="secondary" />
-        </div>
-      </div> */}
       <FieldSelector
         id="scaling"
         title="Define preprocessing options for normalizing dataset features."
@@ -160,14 +146,6 @@ const ModelConfig = () => {
       </div>
     </div>
   );
-};
-const styles = {
-  content: {},
-  pinCards: {},
-  chart: {
-    padding: "20px",
-  },
-  horizontalCharts: {},
 };
 
 export default ModelConfig;

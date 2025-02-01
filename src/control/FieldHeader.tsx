@@ -1,4 +1,3 @@
-import React from "react";
 import { theme } from "../styles/theme";
 
 interface FieldHeaderProps {
@@ -7,6 +6,15 @@ interface FieldHeaderProps {
   description: string;
   required?: boolean;
 }
+
+const styles = {
+  inputTitle: {
+    color: theme.colors.textAttention,
+  },
+  required: {
+    color: theme.colors.error,
+  },
+};
 
 const FieldHeader = ({
   id,
@@ -29,15 +37,6 @@ const FieldHeader = ({
       <p className="input-description">{description}</p>{" "}
     </div>
   );
-};
-
-const styles = {
-  inputTitle: {
-    color: theme.colors.textAttention,
-  },
-  required: {
-    color: theme.colors.error,
-  },
 };
 
 export default FieldHeader;

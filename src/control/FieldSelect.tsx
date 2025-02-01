@@ -13,6 +13,20 @@ interface FieldSelectorProps {
   onFieldChange?: (field: string) => void;
 }
 
+const styles = {
+  input: {
+    padding: "10px",
+    width: "100%",
+    borderRadius: "6px",
+    border: `1px solid ${theme.colors.backgroundLight}`,
+    backgroundColor: theme.colors.backgroundSecondary,
+    color: theme.colors.textAttention,
+  },
+  placeholder: {
+    color: theme.colors.text,
+  },
+};
+
 const FieldSelector = ({
   id,
   title,
@@ -33,7 +47,6 @@ const FieldSelector = ({
     />
     <select
       id={id}
-      // value={defaultFields}
       onChange={(e) => (onFieldChange ? onFieldChange(e.target.value) : e)}
       className="select-input"
       style={styles.input}
@@ -51,23 +64,3 @@ const FieldSelector = ({
 );
 
 export default FieldSelector;
-
-const styles = {
-  inputTitle: {
-    color: theme.colors.textAttention,
-  },
-  required: {
-    color: theme.colors.error,
-  },
-  input: {
-    padding: "10px",
-    width: "100%",
-    borderRadius: "6px",
-    border: `1px solid ${theme.colors.backgroundLight}`,
-    backgroundColor: theme.colors.backgroundSecondary,
-    color: theme.colors.textAttention,
-  },
-  placeholder: {
-    color: theme.colors.text,
-  },
-};

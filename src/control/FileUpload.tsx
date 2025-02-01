@@ -14,6 +14,17 @@ interface FileUploadProps {
   onTagsChange?: (id: string) => void;
 }
 
+const styles = {
+  input: {
+    padding: "10px",
+    width: "100%",
+    borderRadius: "6px",
+    border: `1px solid ${theme.colors.backgroundLight}`,
+    backgroundColor: theme.colors.backgroundSecondary,
+    color: theme.colors.textAttention,
+  },
+};
+
 const FileUpload = ({
   id,
   title,
@@ -23,19 +34,19 @@ const FileUpload = ({
   placeholder,
   onTagsChange,
 }: FileUploadProps) => {
-  const fileInputRef = useRef<HTMLInputElement>(null); // Reference to the hidden file input
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [fileName, setFileName] = useState<string>("");
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files.length > 0) {
-      setFileName(event.target.files[0].name); // Get the name of the uploaded file
+      setFileName(event.target.files[0].name);
     }
   };
 
   const handleButtonClick = () => {
     console.log("click");
     if (fileInputRef.current) {
-      fileInputRef.current.click(); // Programmatically click the hidden file input
+      fileInputRef.current.click();
     }
   };
 
@@ -69,7 +80,7 @@ const FileUpload = ({
             ref={fileInputRef}
             type="file"
             onChange={handleFileChange}
-            style={{ display: "none" }} // Hide the file input visually
+            style={{ display: "none" }}
           />
         </label>
       </div>
@@ -78,23 +89,3 @@ const FileUpload = ({
 };
 
 export default FileUpload;
-
-const styles = {
-  inputTitle: {
-    color: theme.colors.textAttention,
-  },
-  required: {
-    color: theme.colors.error,
-  },
-  input: {
-    padding: "10px",
-    width: "100%",
-    borderRadius: "6px",
-    border: `1px solid ${theme.colors.backgroundLight}`,
-    backgroundColor: theme.colors.backgroundSecondary,
-    color: theme.colors.textAttention,
-  },
-  placeholder: {
-    color: theme.colors.text,
-  },
-};

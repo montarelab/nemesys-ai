@@ -9,6 +9,18 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
+const BUTTON_VARIANTS = {
+  primary: {
+    backgroundColor: theme.colors.primary,
+    color: theme.colors.textAttention,
+  },
+  secondary: {
+    backgroundColor: theme.colors.backgroundSecondary,
+    color: theme.colors.text,
+    border: "1px solid var(--background-light)",
+  },
+};
+
 const Button = ({ text, variant, size, href, onClick }: ButtonProps) => {
   const variantStyles = BUTTON_VARIANTS[variant];
   const baseStyles = {
@@ -16,7 +28,6 @@ const Button = ({ text, variant, size, href, onClick }: ButtonProps) => {
     border: "none",
     borderRadius: "5px",
     height: "45px",
-    // textAlign: "center",
     width: size === "lg" ? "300px" : "150px",
   };
   const styles = { ...baseStyles, ...variantStyles };
@@ -34,18 +45,6 @@ const Button = ({ text, variant, size, href, onClick }: ButtonProps) => {
       {text}
     </button>
   );
-};
-
-const BUTTON_VARIANTS = {
-  primary: {
-    backgroundColor: theme.colors.primary,
-    color: theme.colors.textAttention,
-  },
-  secondary: {
-    backgroundColor: theme.colors.backgroundSecondary,
-    color: theme.colors.text,
-    border: "1px solid var(--background-light)",
-  },
 };
 
 export default Button;

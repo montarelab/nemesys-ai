@@ -1,4 +1,3 @@
-import React from "react";
 import { theme } from "../styles/theme";
 import { ReactSVG } from "react-svg";
 import { Link } from "react-router";
@@ -21,10 +20,9 @@ function SidebarLink({
     container: {
       display: "flex",
       alignItems: "center",
-      // padding: "25px 10px",
       textDecoration: "none",
-      color: isActive ? theme.colors.primary : "#ffffff", // Active color is purple; default is white
-      backgroundColor: isActive ? theme.colors.backgroundLight : "transparent", // Highlight background for active
+      color: isActive ? theme.colors.primary : "#ffffff",
+      backgroundColor: isActive ? theme.colors.backgroundLight : "transparent",
       borderRadius: "4px",
       transition: "background-color 0.3s, color 0.3s",
       fontSize: "16px",
@@ -33,26 +31,18 @@ function SidebarLink({
     },
     icon: {
       marginRight: "12px",
-      stroke: isActive ? theme.colors.primary : theme.colors.text, // Highlight background for active
+      stroke: isActive ? theme.colors.primary : theme.colors.text,
       width: "30px",
       height: "30px",
     },
     linkText: {
-      fontWeight: isActive ? "600" : "400", // Bold text for active link
+      fontWeight: isActive ? "600" : "400",
     },
   };
 
   return (
-    <Link
-      to={link.href}
-      style={styles.container}
-      title={link.name} // Tooltip on hover
-    >
+    <Link to={link.href} style={styles.container} title={link.name}>
       {icon && (
-        // <svg width={30} height={30} style={styles.icon}>
-        //   <use href={icon} />
-        // </svg>
-
         <ReactSVG
           width={30}
           height={30}

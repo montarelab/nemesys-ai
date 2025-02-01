@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import logo from "./logo.svg";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Header from "./main/Header";
 import Sidebar from "./main/Sidebar";
@@ -17,7 +16,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(false);
-  const [isScreenLarge, setIsScreenLarge] = useState(window.innerWidth >= 992); // lg breakpoint is 992px
+  const [isScreenLarge, setIsScreenLarge] = useState(window.innerWidth >= 992);
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,7 +25,6 @@ const App = () => {
 
     window.addEventListener("resize", handleResize);
 
-    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };

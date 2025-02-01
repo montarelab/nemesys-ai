@@ -8,7 +8,7 @@ interface GenericTableProps {
   data: any[];
   actions?: boolean;
   pagination?: any;
-  title?: string; // Add a title prop for the table header
+  title?: string;
 }
 
 interface Column {
@@ -23,17 +23,15 @@ const styles: { [key: string]: React.CSSProperties } = {
     borderRadius: "15px",
     width: "100%",
     overflowX: "auto",
-
     backgroundColor: theme.colors.backgroundSecondary,
-    border: "1px solid var(--background-light)", // Lighter border color
+    border: "1px solid var(--background-light)",
   },
   table: {
     borderCollapse: "collapse",
     width: "100%",
-    tableLayout: "auto", // Ensure table layout is set to auto
+    tableLayout: "auto",
     borderRadius: "15px",
     borderTop: "1px solid var(--background-light)",
-    // border: "1px solid #ddd", // Lighter border color
   },
   th: {
     padding: "20px",
@@ -45,14 +43,11 @@ const styles: { [key: string]: React.CSSProperties } = {
     whiteSpace: "nowrap",
     textAlign: "center",
   },
-  actions: {
-    margin: "0 5px",
-  },
   evenRow: {
-    backgroundColor: theme.colors.backgroundPrimary, // Light color for even rows
+    backgroundColor: theme.colors.backgroundPrimary,
   },
   oddRow: {
-    backgroundColor: theme.colors.backgroundSecondary, // Darker color for odd rows
+    backgroundColor: theme.colors.backgroundSecondary,
   },
 };
 
